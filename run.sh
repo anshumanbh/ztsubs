@@ -13,7 +13,7 @@ while read nameservers; do
   echo
 done <nameservers.txt
 
-sort -u *.results > subs.txt
+sort -u *.results > "$outfile"
 
 rm *.results
 rm nameservers.txt
