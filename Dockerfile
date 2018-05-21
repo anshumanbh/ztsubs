@@ -6,3 +6,4 @@ WORKDIR app
 ADD run.sh .
 
 ENTRYPOINT [ "./run.sh" ]
+

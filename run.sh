@@ -13,9 +13,13 @@ while read nameservers; do
   echo
 done <nameservers.txt
 
-sort -u *.results > "$outfile"
+sort -u *.results > tmp.txt
+
+sedstr=s/$domain.*/$domain/g; 
+cat tmp.txt | sed 's/[[:space:]]//g' | sed $sedstr | sort -u > "$outfile"
+
+echo "$domain" >> "$outfile"
 
 rm *.results
 rm nameservers.txt
-
-echo "$domain" >> "$outfile"
+rm tmp.txt
